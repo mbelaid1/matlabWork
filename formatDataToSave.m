@@ -24,6 +24,8 @@ if(getValue(handles.applyMovingAverage))
     
     header(7,1) = "Moving Average Window";
     header(7,2) = getValue(handles.movingAverageWindowSize);
+    header(9,3) = "Filtered Data";
+
     i = 1;
 end
 header(8+i,1) = "Distance (km)";
@@ -39,12 +41,13 @@ c = get(handles.mainPlot,'Children');
 xData = get(c,'XData');
 yData = get(c,'YData');
 if iscell(xData)
-    for x = 1:length(xData)
-        data(:,2*x-1) = (cell2mat(xData(x)))';
-        data(:,2*x) = (cell2mat(yData(x)))';
+%     for x = 1:length(xData)
+        data(:,1) = (cell2mat(xData(1)))';
+        data(:,2) = (cell2mat(yData(1)))';
+        data(:,3) = (cell2mat(yData(2)))';
 %         i = 0;
 
-    end
+%     end
     return
 else
     data(:,1) = xData';

@@ -576,7 +576,7 @@ switch state
             else                %Just move text around.
                 set(th,'Position', [x y 0])
             end
-            drawnow limitrate 
+%             drawnow limitrate 
         end
         
     case 'up'           % Execute the WindowButtonUpFcn

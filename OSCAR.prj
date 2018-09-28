@@ -1,13 +1,8 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="4135215327" file="C:\Users\mbelaid\OneDrive - Analog Devices, Inc\Matlab\OSCAR\Customer Eval Software\OSCAR.prj" location="C:\Users\mbelaid\OneDrive - Analog Devices, Inc\Matlab\OSCAR\Customer Eval Software" name="OSCAR" preferred-package-location="C:\Users\mbelaid\OneDrive - Analog Devices, Inc\Matlab\OSCAR\Customer Eval Software\OSCAR\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration file="\\Analog\users\WILM\mbelaid\My Documents\Matlab Projects\Oscar\OSCAR.prj" location="\\Analog\users\WILM\mbelaid\My Documents\Matlab Projects\Oscar" name="OSCAR" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>OSCAR</param.appname>
-    <param.icon>${PROJECT_ROOT}\OSCAR_resources\icon.ico</param.icon>
-    <param.icons>
-      <file>${PROJECT_ROOT}\OSCAR_resources\icon_48.png</file>
-      <file>${PROJECT_ROOT}\OSCAR_resources\icon_32.png</file>
-      <file>${PROJECT_ROOT}\OSCAR_resources\icon_24.png</file>
-      <file>${PROJECT_ROOT}\OSCAR_resources\icon_16.png</file>
-    </param.icons>
+    <param.icon />
+    <param.icons />
     <param.version>1.0</param.version>
     <param.authnamewatermark>Mahmoud Belaid</param.authnamewatermark>
     <param.email>mahmoud.belaid@analog.com</param.email>
@@ -18,7 +13,7 @@
     <param.guid />
     <param.installpath.string>\Analog Devices\OSCAR\</param.installpath.string>
     <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
-    <param.logo>${PROJECT_ROOT}\o.bmp</param.logo>
+    <param.logo />
     <param.install.notes />
     <param.target.install.notes />
     <param.intermediate>${PROJECT_ROOT}\OSCAR\for_testing</param.intermediate>
@@ -32,17 +27,19 @@
     <param.web.mcr>true</param.web.mcr>
     <param.package.mcr>false</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
-    <param.web.mcr.name>install</param.web.mcr.name>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
     <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
     <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
     <param.windows.command.prompt>true</param.windows.command.prompt>
     <param.create.log>true</param.create.log>
-    <param.log.file>log</param.log.file>
+    <param.log.file>log.txt</param.log.file>
     <param.native.matlab>false</param.native.matlab>
     <param.checkbox>false</param.checkbox>
     <param.example />
     <param.help.text />
     <unset>
+      <param.icon />
+      <param.icons />
       <param.version />
       <param.authnamewatermark />
       <param.email />
@@ -53,6 +50,7 @@
       <param.guid />
       <param.installpath.string />
       <param.installpath.combo />
+      <param.logo />
       <param.target.install.notes />
       <param.intermediate />
       <param.files.only />
@@ -65,6 +63,7 @@
       <param.web.mcr />
       <param.package.mcr />
       <param.no.mcr />
+      <param.web.mcr.name />
       <param.package.mcr.name />
       <param.no.mcr.name />
       <param.windows.command.prompt />
@@ -96,9 +95,9 @@
       <file>${PROJECT_ROOT}\repositionCursors.m</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\OSCAR\for_testing" name="OSCAR.exe" optional="false">C:\Users\mbelaid\OneDrive - Analog Devices, Inc\Matlab\OSCAR\Customer Eval Software\OSCAR\for_testing\OSCAR.exe</file>
-      <file location="${PROJECT_ROOT}\OSCAR\for_testing" name="splash.png" optional="false">C:\Users\mbelaid\OneDrive - Analog Devices, Inc\Matlab\OSCAR\Customer Eval Software\OSCAR\for_testing\splash.png</file>
-      <file location="${PROJECT_ROOT}\OSCAR\for_testing" name="readme.txt" optional="true">C:\Users\mbelaid\OneDrive - Analog Devices, Inc\Matlab\OSCAR\Customer Eval Software\OSCAR\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\OSCAR\for_testing" name="OSCAR.exe" optional="false">\\Analog\users\WILM\mbelaid\My Documents\Matlab Projects\Oscar\OSCAR\for_testing\OSCAR.exe</file>
+      <file location="${PROJECT_ROOT}\OSCAR\for_testing" name="readme.txt" optional="true">\\Analog\users\WILM\mbelaid\My Documents\Matlab Projects\Oscar\OSCAR\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\OSCAR\for_testing" name="splash.png" optional="false">\\Analog\users\WILM\mbelaid\My Documents\Matlab Projects\Oscar\OSCAR\for_testing\splash.png</file>
     </build-deliverables>
     <workflow />
     <matlab>

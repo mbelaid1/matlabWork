@@ -21,7 +21,7 @@ function OSCAR_OpeningFcn(hObject, eventdata, handles, varargin)
 handles.output = hObject;
 guidata(hObject, handles);
 % axes(handles.mainPlot);
-%  profile on
+%   profile on
 
 function varargout = OSCAR_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
@@ -150,7 +150,8 @@ end
 
 function customSave_ClickedCallback(hObject, eventdata, handles)
 dualcursor off
-try
+h = waitbar(0,'Saving Data. Please Wait!');
+ try
     [header, data] = formatDataToSave(handles);
     if data==-1
         return
@@ -168,6 +169,12 @@ try
     for i=1:length(header)
         fprintf(fid,'%s',header{i,1});
         fprintf(fid,'%s',',');
+    if (i == length(header) & size(header,2)==3)
+        fprintf(fid,'%s',header{i,2});
+        fprintf(fid,'%s',',');
+        fprintf(fid,'%s \n',header{i,3});
+        break;
+    end
         fprintf(fid,'%s \n',header{i,2});
         waitbar(i/(length(header)+1),h,'Please Wait!')
     end
@@ -177,9 +184,10 @@ try
     pause(0.5)
     close (h)
     cursorEnable_Callback(hObject, eventdata, handles)
-catch
+ catch
+    if exist('h') close(h), end 
     cursorEnable_Callback(hObject, eventdata, handles)
-end
+ end
 
 
 function timeDistance_Callback(hObject, eventdata, handles)
@@ -221,38 +229,40 @@ set(handles.runConfigure,'Enable',isValueDirty(handles.gainSelection,'pw'));
 function numberOfAverages_Callback(hObject, eventdata, handles)
 set(handles.runConfigure,'Enable',isValueDirty(handles.gainSelection,'numberAverages'));
 
+%% Checking value of different fields that user can edit
 function pdReverseBiasVoltage_KeyPressFcn(hObject, eventdata, handles)
-checkInput(hObject,eventdata);
+checkInput(hObject,eventdata,3,70);
 
 function laserLaunchPower_KeyPressFcn(hObject, eventdata, handles)
-checkInput(hObject,eventdata);
+checkInput(hObject,eventdata,7,20);
+
 
 function pulseWidth_KeyPressFcn(hObject, eventdata, handles)
-checkInput(hObject,eventdata);
+checkInput(hObject,eventdata,0.01, 20);
 
 function numberOfAverages_KeyPressFcn(hObject, eventdata, handles)
-checkInput(hObject,eventdata);
+checkInput(hObject,eventdata, 1024,100*1024);
 
 function movingAverageWindowSize_KeyPressFcn(hObject, eventdata, handles)
-checkInput(hObject,eventdata);
+checkInput(hObject,eventdata,1,1000);
 set(handles.runFilter,'Enable','on')
 
 function xLowerLimit_KeyPressFcn(hObject, eventdata, handles)
-checkInput(hObject,eventdata);
+checkInput(hObject,eventdata,0,200);
 set(handles.configureAxes,'Enable','on')
 
 function xUpperLimit_KeyPressFcn(hObject, eventdata, handles)
-checkInput(hObject,eventdata);
+checkInput(hObject,eventdata,0, 300);
 set(handles.configureAxes,'Enable','on')
 
 function yLowerLimit_KeyPressFcn(hObject, eventdata, handles)
-checkInput(hObject,eventdata);
+checkInput(hObject,eventdata, 0, 1e9);
 set(handles.configureAxes,'Enable','on')
 
 function yUpperLimit_KeyPressFcn(hObject, eventdata, handles)
-checkInput(hObject,eventdata);
+checkInput(hObject,eventdata, 0, 1e9);
 set(handles.configureAxes,'Enable','on')
-
+%%
 function banwdithSelection_Callback(hObject, eventdata, handles)
 set(handles.runConfigure,'Enable',isValueDirty(handles.banwdithSelection,'filter'));
 
