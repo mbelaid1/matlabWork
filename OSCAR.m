@@ -55,6 +55,8 @@ data =round(readDataFPGA,3);
 waitbar(2/7,h);
 set(handles.axesPanel,'Visible','on');
 set(handles.mainPlot,'Visible','on');
+set(handles.cursorEnable,'Visible','on');
+
 waitbar(3/7,h);
 
 handles.UserData = data;
